@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.36" id="CreatePageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="guardarEmpleados_nombre" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="guardarEmpleados_email" IsQueriable="false"/>
+      <variable Type="float" Name="guardarEmpleados_salario" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="guardarEmpleados_telefono" IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator Binds="guardarEmpleados.result" DataControl="EmpleadoDC" RangeSize="25"
+                    BeanClass="mobile.DTO.Empleado" id="guardarEmpleadosIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="guardarEmpleados" RequiresUpdateModel="true" Action="invokeMethod" MethodName="guardarEmpleados"
+                  IsViewObjectMethod="false" DataControl="EmpleadoDC" InstanceName="data.EmpleadoDC.dataProvider"
+                  ReturnName="data.EmpleadoDC.methodResults.guardarEmpleados_EmpleadoDC_dataProvider_guardarEmpleados_result">
+      <NamedData NDName="nombre" NDType="java.lang.String" NDValue="${bindings.guardarEmpleados_nombre}"/>
+      <NamedData NDName="email" NDType="java.lang.String" NDValue="${bindings.guardarEmpleados_email}"/>
+      <NamedData NDName="telefono" NDType="java.lang.String" NDValue="${bindings.guardarEmpleados_telefono}"/>
+      <NamedData NDName="salario" NDType="float" NDValue="${bindings.guardarEmpleados_salario}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="nombre">
+      <AttrNames>
+        <Item Value="guardarEmpleados_nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="email">
+      <AttrNames>
+        <Item Value="guardarEmpleados_email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="salario">
+      <AttrNames>
+        <Item Value="guardarEmpleados_salario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="telefono">
+      <AttrNames>
+        <Item Value="guardarEmpleados_telefono"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

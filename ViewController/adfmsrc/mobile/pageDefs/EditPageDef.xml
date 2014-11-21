@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.36" id="EditPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EmpleadoDC" id="EmpleadoDCIterator"/>
+    <accessorIterator MasterBinding="EmpleadoDCIterator" Binds="empleados" RangeSize="25" DataControl="EmpleadoDC"
+                      BeanClass="mobile.DTO.Empleado" id="empleadosIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="empleadosIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="nombre">
+      <AttrNames>
+        <Item Value="nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="salario">
+      <AttrNames>
+        <Item Value="salario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="telefono">
+      <AttrNames>
+        <Item Value="telefono"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="actualizarEmpleado" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="actualizarEmpleado" IsViewObjectMethod="false" DataControl="EmpleadoDC"
+                  InstanceName="data.EmpleadoDC.dataProvider"
+                  ReturnName="data.EmpleadoDC.methodResults.actualizarEmpleado_EmpleadoDC_dataProvider_actualizarEmpleado_result">
+      <NamedData NDName="id" NDValue="#{bindings.id.inputValue}" NDType="int"/>
+      <NamedData NDName="nombre" NDValue="#{bindings.nombre.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="cedula" NDValue="#{bindings.email.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="telefono" NDValue="#{bindings.telefono.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="salario" NDValue="#{bindings.salario.inputValue}" NDType="float"/>
+    </methodAction>
+    <methodAction id="borrarEmpleado" RequiresUpdateModel="true" Action="invokeMethod" MethodName="borrarEmpleado"
+                  IsViewObjectMethod="false" DataControl="EmpleadoDC" InstanceName="data.EmpleadoDC.dataProvider">
+      <NamedData NDName="id" NDValue="#{bindings.id.inputValue}" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

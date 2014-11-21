@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.36" id="MainPageDef"
+                Package="mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="EmpleadoDC" id="EmpleadoDCIterator"/>
+    <accessorIterator MasterBinding="EmpleadoDCIterator" Binds="empleados" RangeSize="25" DataControl="EmpleadoDC"
+                      BeanClass="mobile.DTO.Empleado" id="empleadosIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="empleadosIterator" id="empleados">
+      <nodeDefinition DefName="mobile.DTO.Empleado" Name="empleados0">
+        <AttrNames>
+          <Item Value="nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="empleadosIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="nombre">
+      <AttrNames>
+        <Item Value="nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="salario">
+      <AttrNames>
+        <Item Value="salario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="empleadosIterator" id="telefono">
+      <AttrNames>
+        <Item Value="telefono"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

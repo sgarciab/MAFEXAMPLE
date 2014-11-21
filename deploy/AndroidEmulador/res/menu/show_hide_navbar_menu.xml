@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- Make title changes to ANDInfoBundle.UI_SHOW_NAVIGATION & ANDInfoBundle.UI_HIDE_NAVIGATION -->
+    <item android:id="@+id/menu_show_hide_navbar" />
+</menu>

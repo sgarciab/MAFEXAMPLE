@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Header" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="cb1" action="create" text="Create"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb2" action="edit" text="Edit"/>
+    </amx:facet>
+     <amx:facet name="footer">
+        <amx:commandButton text="Chart" id="cb3" action="draw"/>
+     </amx:facet>
+    <amx:panelSplitter id="ps1">
+      <amx:facet name="navigator">
+        <amx:listView var="row" value="#{bindings.empleados.collectionModel}"
+                      fetchSize="#{bindings.empleados.rangeSize}"
+                      selectedRowKeys="#{bindings.empleados.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.empleados.collectionModel.makeCurrent}" dividerAttribute="nombre"
+                      dividerMode="firstLetter" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+          <amx:listItem id="li1">
+            <amx:outputText value="#{row.nombre}" id="ot2"/>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+      <amx:panelItem id="pi1">
+        <amx:panelFormLayout id="pfl1">
+          <amx:panelLabelAndMessage label="ID" id="plam3">
+            <amx:outputText value="#{bindings.id.inputValue}" id="ot5"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="NOMBRE" id="plam2">
+            <amx:outputText value="#{bindings.nombre.inputValue}" id="ot4"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="EMAIL" id="plam5">
+            <amx:outputText value="#{bindings.email.inputValue}" id="ot7"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="SALARIO" id="plam1">
+            <amx:outputText value="#{bindings.salario.inputValue}" id="ot3"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="TELEFONO" id="plam4">
+            <amx:outputText value="#{bindings.telefono.inputValue}" id="ot6"/>
+          </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+      </amx:panelItem>
+    </amx:panelSplitter>
+    
+  </amx:panelPage>
+</amx:view>
